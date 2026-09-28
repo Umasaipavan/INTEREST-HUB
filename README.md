@@ -1,84 +1,148 @@
-# InterestHub — Money Interest Calculator
+# InterestHub
 
-A polished, production-ready **Money Interest Calculator** built with **React 19 + TypeScript + Tailwind CSS**. Designed specifically for everyday Indian users to calculate simple interest in both standard bank annual percentage (`% p.a.`) and Indian monthly informal rupee rate (`₹ per ₹100 / ₹1,000 / ₹10,000 per month`).
+A modern, fintech-style money interest calculator built for India. InterestHub helps users compare and understand interest in both traditional percentage-based simple interest and informal rupee-rate lending formats commonly used in everyday Indian financial conversations.
 
----
+Whether you are planning a personal loan, evaluating a business borrowing cost, or simply trying to understand the true annual cost of a monthly rate, InterestHub makes the math clear, fast, and accessible.
 
-## ✨ Features
+## Why this project exists
 
-- **Two Calculation Modes**:
-  1. **Percentage (%)**: Rate per year (`% p.a.`) with standard Simple Interest $(P \times R \times T) / 100$.
-  2. **Rupees (₹)**: "₹X per ₹100 / ₹1,000 / ₹10,000 per month" informal Indian lending rate.
-- **Equivalent Rate Insight Chip**:
-  - Automatically translates market rates (e.g., *"₹2 per ₹100 per month ≈ 24% per year"*), demystifying informal lending costs.
-- **Hero Results Section**:
-  - Live count-up animation on value changes (respects `prefers-reduced-motion`).
-  - Stat cards: **Total Interest**, **Monthly Interest Cost**, **Principal Amount**.
-  - Principal vs. Interest share stacked bar.
-- **Step-by-Step Breakdown**:
-  - Plain-language numbered timeline card showing exact calculation steps.
-  - Collapsible on mobile viewports.
-- **Indian Financial Ergonomics**:
-  - Live Indian number formatting (`1,00,000` style comma separation).
-  - Live conversion to Indian words (`One Lakh Rupees`, etc.).
-  - Quick-pick chips for amounts (`₹10K`, `₹50K`, `₹1L`, `₹5L`, `₹10L`), rates, and durations.
-- **Fintech Aesthetic**:
-  - Modern typography (Plus Jakarta Sans).
-  - Dark mode and light mode with persistent toggle.
-  - Sticky mobile summary bar for instant glanceability.
-- **Robust Input Validation & Accessibility**:
-  - Inline error warnings with icons and `aria-invalid` / `aria-describedby`.
-  - Radio-group semantics for toggles, keyboard navigation, and WCAG AA contrast.
+Many people understand a rate like “₹2 per ₹100 per month,” but few know the equivalent annual percentage. InterestHub translates this into clear, actionable insights using a clean interface, instant calculations, and human-friendly explanations.
 
----
+## Key features
 
-## 🚀 Quick Start Commands
+- Two calculation modes:
+  - Percentage-based simple interest for standard bank-style calculations
+  - Rupee-based monthly interest model for Indian informal lending contexts
+- Instant conversion of informal monthly rates into annualized percentages
+- Real-time financial summaries for:
+  - total interest
+  - monthly interest cost
+  - principal amount
+  - principal vs. interest share
+- Step-by-step calculation breakdown in plain language
+- Indian-format number styling such as 1,00,000 and rupee outputs
+- Quick preset chips for common amounts, rates, and durations
+- Light and dark theme support
+- Accessible forms, validation messages, and keyboard-friendly controls
+- Responsive design for desktop, tablet, and mobile screens
 
-Run the following commands in your terminal:
+## Example use cases
+
+- Compare a market rate of “₹2 per ₹100 per month” with a standard annual rate
+- Estimate how much interest accrues over a chosen time period
+- Understand the real cost of informal borrowing or lending
+- Evaluate principal and interest split before making a financial decision
+
+## How it works
+
+InterestHub supports standard simple interest calculations:
+
+```text
+Simple Interest = (P × R × T) / 100
+```
+
+It also translates rupee-based rates into annual equivalents, helping users understand what a seemingly small monthly number actually means over a year.
+
+## Tech stack
+
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- Vitest
+- Lucide Icons
+
+## Getting started
+
+### Install dependencies
 
 ```bash
-# 1. Start the local development server
+npm install
+```
+
+### Run locally
+
+```bash
 npm run dev
 ```
 
-Open the URL displayed in your terminal (usually `http://localhost:5173`) in your browser.
+The app will start in development mode and usually open at:
 
-### Other Useful Commands
+```text
+http://localhost:5173
+```
+
+### Run tests
 
 ```bash
-# Run unit tests
 npm run test
+```
 
-# Type-check and build for production
+### Build for production
+
+```bash
 npm run build
+```
 
-# Preview production build locally
+### Preview production build
+
+```bash
 npm run preview
 ```
 
+## Project structure
+
+```text
+src/
+├── App.tsx
+├── main.tsx
+├── index.css
+├── assets/
+├── components/
+│   ├── AmountInput.tsx
+│   ├── CalculationBreakdown.tsx
+│   ├── ChipGroup.tsx
+│   ├── DurationInput.tsx
+│   ├── InterestInput.tsx
+│   ├── InterestTypeSelector.tsx
+│   ├── ResultCard.tsx
+│   └── ThemeToggle.tsx
+├── hooks/
+│   └── useInterestCalculator.ts
+├── lib/
+│   ├── format.ts
+│   ├── interest.test.ts
+│   ├── interest.ts
+│   └── validate.ts
+└── vite-env.d.ts
+```
+
+## Design philosophy
+
+InterestHub is built around clarity and trust. Instead of overwhelming users with raw numbers, the interface focuses on:
+
+- understandable calculations
+- clean visual hierarchy
+- practical Indian money formatting
+- trustworthy comparisons between common financial rates
+
+## License
+
+This project is for educational and personal use. If you are using it in a production or commercial setting, please review the licensing terms applicable to your deployment environment.
+
+## Contributing
+
+Contributions are welcome. You can help by:
+
+- improving calculation logic
+- refining accessibility and UX
+- adding more finance-oriented presets
+- enhancing validation and edge-case handling
+
+## Status
+
+InterestHub is actively developed as a practical financial calculator with a strong focus on clarity, usability, and India-specific money understanding.
+
 ---
 
-## 📁 Architecture
-
-```
-src/
-├── lib/
-│   ├── interest.ts        # Pure calculation logic, types & discriminated union
-│   ├── format.ts          # Indian comma grouping, currency & number-to-words
-│   ├── validate.ts        # Validation rules and boundary limits
-│   └── interest.test.ts   # 16 Unit tests covering both modes & edge cases
-├── components/
-│   ├── AmountInput.tsx           # Principal input with live words & chips
-│   ├── InterestTypeSelector.tsx  # Accessible segmented mode toggle
-│   ├── InterestInput.tsx         # Percentage & Rupee inputs + base selector
-│   ├── DurationInput.tsx         # Tenure input with months/years toggle
-│   ├── ResultCard.tsx            # Animated hero results, stat cards & bar
-│   ├── CalculationBreakdown.tsx  # Step-by-step plain language timeline
-│   ├── ChipGroup.tsx             # Reusable quick-pick chips
-│   └── ThemeToggle.tsx           # Light/dark mode toggle with persistence
-├── hooks/
-│   └── useInterestCalculator.ts  # State management & derived calculations
-├── App.tsx                       # Main layout and responsive page assembly
-├── main.tsx                      # React root entry point
-└── index.css                     # Tailwind directives & typography
-```
+Built to make interest easier to understand, compare, and act on.
