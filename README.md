@@ -6,7 +6,7 @@ Whether you are planning a personal loan, evaluating a business borrowing cost, 
 
 ## Why this project exists
 
-Many people understand a rate like “₹2 per ₹100 per month,” but few know the equivalent annual percentage. InterestHub translates this into clear, actionable insights using a clean interface, instant calculations, and human-friendly explanations.
+Many people understand a rate like “₹2 per ₹100 per month,” but few know the equivalent annual percentage. InterestHub translates this into clear, actionable insights using a clean interface, instant calculations, and human-friendly explanations
 
 ## Key features
 
